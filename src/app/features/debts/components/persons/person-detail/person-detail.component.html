@@ -1,0 +1,24 @@
+<mat-card *ngIf="person$ | async as person; else noUserSelected">
+  <mat-card-header>
+    <h2>{{ person.name }}</h2>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ person.description }}</p>
+    <mat-tab-group>
+      <mat-tab label="Unpaid">
+        <!--<dm-debt-list [debts]="debts$ | async | debtsPaymentState:'unpaid'" [personId]="person.id"></dm-debt-list>-->
+      </mat-tab>
+      <mat-tab label="Paid">
+        <!--<dm-debt-list [debts]="debts$ | async | debtsPaymentState:'paid'" [personId]="person.id"></dm-debt-list>-->
+      </mat-tab>
+      <mat-tab label="All">
+        <!--<dm-debt-list [debts]="debts$ | async" [personId]="person.id"></dm-debt-list>-->
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #noUserSelected>
+  No user selected, nothing to display...
+</ng-template>

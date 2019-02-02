@@ -1,5 +1,5 @@
 import {Debt, Person} from './debts.models';
-import {getTestDebtsState} from './debts.mock';
+import {createTestDebtsState} from './debts.mock';
 
 export interface DebtsState {
   persons: Person[];
@@ -7,4 +7,4 @@ export interface DebtsState {
 }
 
 // at the moment, start with some test data
-export const initialDebtsState = getTestDebtsState();
+export const initialDebtsState = createTestDebtsState();

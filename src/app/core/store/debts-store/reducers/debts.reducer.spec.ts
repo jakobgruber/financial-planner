@@ -1,5 +1,5 @@
 import {DebtsState} from '../debts.state';
-import {getTestDebtsState} from '../debts.mock';
+import {createTestDebtsState} from '../debts.mock';
 import {Debt, Person} from '../debts.models';
 import {debtsReducer} from './debts.reducer';
 import * as DebtActions from '../actions/debts.actions';
@@ -10,7 +10,7 @@ describe('debtsReducer', () => {
   let testDebt: Debt;
 
   beforeEach(() => {
-    oldState = getTestDebtsState();
+    oldState = createTestDebtsState();
 
     testPerson = {
       id: 'franz',

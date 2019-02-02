@@ -1,6 +1,13 @@
 import {DebtsState} from './debts.state';
+import {RootStoreState} from '../root-store.state';
 
-export function getTestDebtsState(): DebtsState {
+export function createRootTestDebtsState(): RootStoreState {
+  return {
+    debts: createTestDebtsState()
+  };
+}
+
+export function createTestDebtsState(): DebtsState {
   return {
     persons: [
       {

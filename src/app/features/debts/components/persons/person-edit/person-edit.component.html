@@ -1,0 +1,30 @@
+<mat-card *ngIf="person">
+  <mat-card-header>
+    <h2 *ngIf="isNewPerson">Create new person</h2>
+    <h2 *ngIf="!isNewPerson">Edit person</h2>
+  </mat-card-header>
+
+  <mat-card-content [formGroup]="personForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="nameInput" required>
+        <mat-error *ngIf="nameInput.touched && nameInput.invalid">Name is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Description" formControlName="descriptionInput" required>
+        <mat-error *ngIf="descriptionInput.touched && descriptionInput.invalid">Description is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <footer>
+      <button mat-button color="primary" (click)="savePerson()">
+        <mat-icon>save</mat-icon>Save
+      </button>
+      <button mat-button color="primary" (click)="cancel()">
+        <mat-icon>cancel</mat-icon>Cancel
+      </button>
+    </footer>
+  </mat-card-content>
+</mat-card>

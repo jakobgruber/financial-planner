@@ -24,7 +24,7 @@ export class PersonListComponent implements OnInit {
   }
 
   deletePerson(person: Person) {
-    this.debtsStoreService.deletePerson(person);
+    this.debtsStoreService.removePerson(person);
     this.snackbarService.open('Person ' + person.name + ' deleted');
   }
 }

@@ -18,7 +18,19 @@ export class DebtsStoreService {
     return this.store.select(DebtsSelectors.selectPersons);
   }
 
-  deletePerson(person: Person) {
+  getPerson(personId: string): Observable<Person> {
+    return this.store.select(DebtsSelectors.selectPerson(personId));
+  }
+
+  addPerson(person: Person) {
+    this.store.dispatch(new DebtsActions.AddPersonAction({person}));
+  }
+
+  updatePerson(person: Person) {
+    this.store.dispatch(new DebtsActions.UpdatePersonAction({person}));
+  }
+
+  removePerson(person: Person) {
     this.store.dispatch(new DebtsActions.RemovePersonAction({person}));
   }
 }

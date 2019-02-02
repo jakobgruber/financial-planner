@@ -1,14 +1,15 @@
 export interface Debt {
-  id: number;
+  id: string;
+  personId: string;
   title: string;
   amount: number;
   description: string;
   isPaid: boolean;
+  isMine: boolean;
 }
 
 export interface Person {
-  id: number;
+  id: string;
   name: string;
   description: string;
-  debts: Debt[];
 }

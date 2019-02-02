@@ -27,3 +27,11 @@ export const selectDebtsFromPerson = (personId: string) => {
     });
   });
 };
+
+export const selectDebt = (personId, debtId) => {
+  return createSelector(selectDebtsFromPerson(personId), (debts: Debt[]) => {
+    return debts.find((debt: Debt) => {
+      return debt.id === debtId;
+    });
+  });
+};

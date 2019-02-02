@@ -41,4 +41,18 @@ describe('DebtsSelectors', () => {
       expect(selectedState[1].id).toEqual('sepp_2');
     });
   });
+
+  describe('selectDebt', () => {
+    it('should select debt for person with debtId', () => {
+      const selectedState = DebtsSelectors.selectDebt('sepp', 'sepp_1')(rootState);
+
+      expect(selectedState.id).toEqual('sepp_1');
+    });
+
+    it('should select nothing when debtId does not belong to person', () => {
+      const selectedState = DebtsSelectors.selectDebt('does not exist', 'sepp_1')(rootState);
+
+      expect(selectedState).toBeUndefined();
+    });
+  });
 });

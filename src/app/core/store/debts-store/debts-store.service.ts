@@ -37,4 +37,16 @@ export class DebtsStoreService {
   getDebts(personId: string): Observable<Debt[]> {
     return this.store.select(DebtsSelectors.selectDebtsFromPerson(personId));
   }
+
+  getDebt(personId: string, debtId: string): Observable<Debt> {
+    return this.store.select(DebtsSelectors.selectDebt(personId, debtId));
+  }
+
+  addDebt(debt: Debt) {
+    return this.store.dispatch(new DebtsActions.AddDebtAction({debt}));
+  }
+
+  updateDebt(debt: Debt) {
+    return this.store.dispatch(new DebtsActions.UpdateDebtAction({debt}));
+  }
 }

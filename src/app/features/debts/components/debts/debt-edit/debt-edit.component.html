@@ -1,0 +1,36 @@
+<mat-card *ngIf="debt">
+  <mat-card-header>
+    <h2 *ngIf="isNewDebt">Create new debt</h2>
+    <h2 *ngIf="!isNewDebt">Edit debt</h2>
+  </mat-card-header>
+
+  <mat-card-content [formGroup]="debtForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="titleInput" required>
+        <mat-error *ngIf="titleInput.touched && titleInput.invalid">Title is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Description" formControlName="descriptionInput" required>
+        <mat-error *ngIf="descriptionInput.touched && descriptionInput.invalid">Description is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Amount" formControlName="amountInput" required>
+        <mat-error *ngIf="amountInput && amountInput.invalid">Amount is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <footer>
+      <button mat-button color="primary" (click)="saveDebt()">
+        <mat-icon>save</mat-icon>Save
+      </button>
+      <button mat-button color="primary" (click)="cancel()">
+        <mat-icon>cancel</mat-icon>Cancel
+      </button>
+    </footer>
+  </mat-card-content>
+</mat-card>

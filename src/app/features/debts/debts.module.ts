@@ -6,6 +6,7 @@ import {PersonEditComponent} from './components/persons/person-edit/person-edit.
 import {PersonDetailComponent} from './components/persons/person-detail/person-detail.component';
 import {DebtListComponent} from './components/debts/debt-list/debt-list.component';
 import {DebtsPaymentStatePipe} from './pipes/debts-payment-state.pipe';
+import {DebtEditComponent } from './components/debts/debt-edit/debt-edit.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import {DebtsPaymentStatePipe} from './pipes/debts-payment-state.pipe';
     DebtsRoutingModule
   ],
   declarations: [PersonListComponent, PersonEditComponent, PersonDetailComponent,
-    DebtListComponent, DebtsPaymentStatePipe]
+    DebtListComponent, DebtsPaymentStatePipe, DebtEditComponent]
 })
 export class DebtsModule {
 }

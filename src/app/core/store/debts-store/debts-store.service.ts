@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {Person} from './debts.models';
+import {Debt, Person} from './debts.models';
 import * as DebtsSelectors from './selectors/debts.selectors';
 import * as DebtsActions from './actions/debts.actions';
 import {RootStoreState} from '../root-store.state';
@@ -32,5 +32,9 @@ export class DebtsStoreService {
 
   removePerson(person: Person) {
     this.store.dispatch(new DebtsActions.RemovePersonAction({person}));
+  }
+
+  getDebts(personId: string): Observable<Debt[]> {
+    return this.store.select(DebtsSelectors.selectDebtsFromPerson(personId));
   }
 }

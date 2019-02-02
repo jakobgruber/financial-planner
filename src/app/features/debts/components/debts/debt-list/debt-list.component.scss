@@ -1,0 +1,12 @@
+mat-toolbar, mat-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+a[matLine] {
+  width: 100%;
+}
+
+mat-list-item button:first-of-type {
+  margin-right: 10px;
+}

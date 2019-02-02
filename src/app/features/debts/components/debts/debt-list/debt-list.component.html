@@ -1,0 +1,30 @@
+<mat-toolbar color="background">
+  <h3>Debts</h3>
+  <button mat-icon-button>
+    <mat-icon [routerLink]="['/debts/person/detail/', personId, 'debt', 'edit', 'new']">add-box</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-list>
+  <mat-list-item *ngFor="let debt of debts">
+    <div matLine [matTooltip]="debt.description">
+      <span>{{ debt.title }} - </span>
+      <span>{{ debt.amount }} &euro; - </span>
+      <span *ngIf="debt.isPaid">paid</span>
+      <span *ngIf="!debt.isPaid">not paid</span>
+    </div>
+
+    <button [hidden]="debt.isPaid" (click)="markDebtAsPaid(debt)" mat-icon-button
+            matTooltip="mark debt as paid">
+      <mat-icon [hidden]="debt.isPaid">euro_symbol</mat-icon>
+    </button>
+    <button [routerLink]="['/debt-management/person/detail/', personId, 'debt', 'edit', debt.id]" mat-icon-button
+            matTooltip="edit debt">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button (click)="deleteDebt(debt)" mat-icon-button
+            matTooltip="delete debt">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>

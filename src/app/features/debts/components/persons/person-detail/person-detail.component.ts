@@ -24,6 +24,6 @@ export class PersonDetailComponent implements OnInit {
       this.person$ = this.debtsStoreService.getPerson(this.personId);
     }
 
-    //this.debts$ = this.debtsStoreService.getDebts(this.personId);
+    this.debts$ = this.debtsStoreService.getDebts(this.personId);
   }
 }

@@ -7,13 +7,13 @@
     <p>{{ person.description }}</p>
     <mat-tab-group>
       <mat-tab label="Unpaid">
-        <!--<dm-debt-list [debts]="debts$ | async | debtsPaymentState:'unpaid'" [personId]="person.id"></dm-debt-list>-->
+        <app-debt-list [debts]="debts$ | async | debtsPaymentState:'unpaid'" [personId]="person.id"></app-debt-list>
       </mat-tab>
       <mat-tab label="Paid">
-        <!--<dm-debt-list [debts]="debts$ | async | debtsPaymentState:'paid'" [personId]="person.id"></dm-debt-list>-->
+        <app-debt-list [debts]="debts$ | async | debtsPaymentState:'paid'" [personId]="person.id"></app-debt-list>
       </mat-tab>
       <mat-tab label="All">
-        <!--<dm-debt-list [debts]="debts$ | async" [personId]="person.id"></dm-debt-list>-->
+        <app-debt-list [debts]="debts$ | async" [personId]="person.id"></app-debt-list>
       </mat-tab>
     </mat-tab-group>
   </mat-card-content>

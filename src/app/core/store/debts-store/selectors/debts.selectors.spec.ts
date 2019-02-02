@@ -32,4 +32,13 @@ describe('DebtsSelectors', () => {
       expect(selectedState.name).toEqual('Nepomuk');
     });
   });
+
+  describe('selectDebtsFromPerson', () => {
+    it('should select debts for person', () => {
+      const selectedState = DebtsSelectors.selectDebtsFromPerson('sepp')(rootState);
+
+      expect(selectedState[0].id).toEqual('sepp_1');
+      expect(selectedState[1].id).toEqual('sepp_2');
+    });
+  });
 });

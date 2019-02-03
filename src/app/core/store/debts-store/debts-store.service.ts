@@ -49,4 +49,12 @@ export class DebtsStoreService {
   updateDebt(debt: Debt) {
     return this.store.dispatch(new DebtsActions.UpdateDebtAction({debt}));
   }
+
+  markDebtAsPaid(debt: Debt) {
+    return this.store.dispatch(new DebtsActions.MarkDebtAsPaidAction({debt}));
+  }
+
+  removeDebt(debt: Debt) {
+    return this.store.dispatch(new DebtsActions.RemoveDebtAction({debt}));
+  }
 }

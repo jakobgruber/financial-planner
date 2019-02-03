@@ -9,7 +9,6 @@ import {DebtsStoreService} from '../../../../../core/store/debts-store/debts-sto
   styleUrls: ['./debt-list.component.scss']
 })
 export class DebtListComponent {
-  @Input() personId: number;
   @Input() debts: Debt[];
 
   constructor(private debtsStoreService: DebtsStoreService,
@@ -18,12 +17,12 @@ export class DebtListComponent {
   }
 
   markDebtAsPaid(debt: Debt) {
-    //this.debtsStoreService.markDebtAsPaid(this.personId, debt);
+    this.debtsStoreService.markDebtAsPaid(debt);
     this.snackbarService.open('Debt ' + debt.title + ' paid');
   }
 
   deleteDebt(debt: Debt) {
-    //this.debtsStoreService.deleteDebt(this.personId, debt);
+    this.debtsStoreService.removeDebt(debt);
     this.snackbarService.open('Debt ' + debt.title + ' deleted');
   }
 }

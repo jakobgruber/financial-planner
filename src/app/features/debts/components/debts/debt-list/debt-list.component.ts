@@ -9,6 +9,7 @@ import {DebtsStoreService} from '../../../../../core/store/debts-store/debts-sto
   styleUrls: ['./debt-list.component.scss']
 })
 export class DebtListComponent {
+  @Input() personId: string;
   @Input() debts: Debt[];
 
   constructor(private debtsStoreService: DebtsStoreService,

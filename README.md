@@ -1,6 +1,21 @@
 # FinancialPlanner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+simple app to test redux/ngrx, angular material and pwa. the app helps with my financial planning
+
+## Features
+* Dashboard - not implemented yet
+  * provides overview of current financial state
+* Debts
+  * maintain persons and their debts
+* Accounting - not implemented yet
+  * maintain expenses and earnings
+* Budgets - not implemented yet
+  * maintain different budgets (e.g. taxes, health care, vacation, education, monthly expenses)
+
+## ToDo
+* save current state in localstorage
+* save current state in backend
+* implement other feature-modules
 
 ## Development server
 

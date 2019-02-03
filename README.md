@@ -16,6 +16,9 @@ simple app to test redux/ngrx, angular material and pwa. the app helps with my f
 * save current state in localstorage
 * save current state in backend
 * implement other feature-modules
+* add e2e-tests
+* add translations
+* add better menus
 
 ## Development server
 

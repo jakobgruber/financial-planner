@@ -4,9 +4,24 @@
                [opened]="!isScreenSmall"
                [mode]="isScreenSmall ? 'over' : 'side'">
 
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="pointer" [routerLink]="['/dashboard']">
       <h3>Financial Planer</h3>
     </mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine [routerLink]="['/dashboard']">Dashboard</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine [routerLink]="['/debts']">Debts</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine [routerLink]="['/accounting']">Accounting</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine [routerLink]="['/budgets']">Budgets</a>
+      </mat-list-item>
+    </mat-nav-list>
 
   </mat-sidenav>
 

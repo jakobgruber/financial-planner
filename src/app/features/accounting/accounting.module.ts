@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AccountingComponent } from './components/accounting/accounting.component';
+import {SharedModule} from '../../shared/shared.module';
+import {AccountingRoutingModule} from './accounting-routing.module';
 
 /*
     todo - implement me
  */
 
 @NgModule({
-  declarations: [],
+  declarations: [AccountingComponent],
   imports: [
-    CommonModule
+    SharedModule,
+    AccountingRoutingModule
   ]
 })
 export class AccountingModule { }

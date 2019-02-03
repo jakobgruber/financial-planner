@@ -2,6 +2,8 @@
 
 simple app to test redux/ngrx, angular material and pwa. the app helps with my financial planning
 
+demo app: https://financial-planner-7e1bb.firebaseapp.com
+
 ## Features
 * Dashboard - not implemented yet
   * provides overview of current financial state

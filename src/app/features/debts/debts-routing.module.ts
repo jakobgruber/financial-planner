@@ -4,10 +4,20 @@ import {PersonListComponent} from './components/persons/person-list/person-list.
 import {PersonEditComponent} from './components/persons/person-edit/person-edit.component';
 import {PersonDetailComponent} from './components/persons/person-detail/person-detail.component';
 import {DebtEditComponent} from './components/debts/debt-edit/debt-edit.component';
+import {RouterData} from '../../core/models/router-data.model';
 
 const routes: Routes = [
-  {path: '', component: PersonListComponent},
-  {path: 'person/edit/:id', component: PersonEditComponent},
+  {
+    path: '', component: PersonListComponent,
+    data: {
+      title: 'Persons'
+    } as RouterData
+  },
+  {path: 'person/edit/:id', component: PersonEditComponent,
+    data: {
+      title: 'Person',
+      hasBackButton: true
+    } as RouterData},
   {path: 'person/detail/:id', component: PersonDetailComponent},
   {path: 'person/detail/:personId/debt/edit/:debtId', component: DebtEditComponent}
 ];

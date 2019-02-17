@@ -27,6 +27,10 @@ export class MainHeaderComponent implements OnInit {
       }));
   }
 
+  navigateBack() {
+    this.router.navigateByUrl('..');
+  }
+
   private getCurrentChildRoute(): ActivatedRoute {
     let route = this.route;
 

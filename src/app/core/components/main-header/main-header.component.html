@@ -1,5 +1,5 @@
 <header *ngIf="$routerData | async as routerData">
-  <i class="material-icons" *ngIf="routerData.hasBackButton">
+  <i class="material-icons" *ngIf="routerData.hasBackButton" (click)="navigateBack()">
     arrow_back_ios
   </i>
   <div>{{routerData.title}}</div>

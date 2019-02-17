@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Event, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {RouterData} from '../../models/router-data.model';
+import {filter, map, switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-main-header',
@@ -9,22 +11,36 @@ import {RouterData} from '../../models/router-data.model';
 })
 export class MainHeaderComponent implements OnInit {
 
-  routerData: RouterData = {};
+  $routerData: Observable<RouterData>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.router.events.subscribe((event: Event) => {
+    this.$routerData = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.getCurrentChildRoute()),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      switchMap(route => route.data),
+      map((data: RouterData) => {
+        return this.setRouterData(data);
+      }));
+  }
 
-    });
+  private getCurrentChildRoute(): ActivatedRoute {
+    let route = this.route;
+
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+
+    return route;
   }
 
   private setRouterData(newRouterData: RouterData = {}) {
-    this.routerData = {
+    return {
       hasBackButton: !!newRouterData.hasBackButton,
       title: newRouterData.title
     };
   }
-
 }

@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="$routerData | async as routerData">
   <i class="material-icons" *ngIf="routerData.hasBackButton">
     arrow_back_ios
   </i>

@@ -1,16 +1,16 @@
 <mat-toolbar color="primary">
   <h2>Persons</h2>
   <button mat-icon-button>
-    <mat-icon [routerLink]="['/debts/person/edit', 'new']">add-box</mat-icon>
+    <mat-icon [routerLink]="['/debts/persons/edit', 'new']">add-box</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-nav-list>
   <mat-list-item *ngFor="let person of persons$ | async">
-    <a matLine [routerLink]="['/debts/person/detail', person.id]">
+    <a matLine [routerLink]="['/debts/persons/detail', person.id]">
       {{ person.name }}
     </a>
-    <button [routerLink]="['/debts/person/edit', person.id]" mat-icon-button
+    <button [routerLink]="['/debts/persons/edit', person.id]" mat-icon-button
             matTooltip="edit debt">
       <mat-icon>edit</mat-icon>
     </button>

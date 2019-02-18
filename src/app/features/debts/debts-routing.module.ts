@@ -8,31 +8,42 @@ import {RouterData} from '../../core/models/router-data.model';
 
 const routes: Routes = [
   {
-    path: '', component: PersonListComponent,
-    data: {
-      title: 'Persons'
-    } as RouterData
-  },
-  {
-    path: 'person/edit/:id', component: PersonEditComponent,
-    data: {
-      title: 'Edit/Add Person',
-      hasBackButton: true
-    } as RouterData
-  },
-  {
-    path: 'person/detail/:id', component: PersonDetailComponent,
-    data: {
-      title: 'Person Detail',
-      hasBackButton: true
-    } as RouterData
-  },
-  {
-    path: 'person/detail/:personId/debt/edit/:debtId', component: DebtEditComponent,
-    data: {
-      title: 'Edit/Add Person Debt',
-      hasBackButton: true
-    } as RouterData
+    path: 'persons',
+    children: [
+      {
+        path: 'list', component: PersonListComponent,
+        data: {
+          title: 'Persons'
+        } as RouterData,
+        children: []
+      }, {
+        path: 'edit/:id', component: PersonEditComponent,
+        data: {
+          title: 'Edit/Add Person',
+          hasBackButton: true
+        } as RouterData
+      }, {
+        path: 'detail',
+        children: [{
+          path: ':id', component: PersonDetailComponent,
+          data: {
+            title: 'Person Detail',
+            hasBackButton: true
+          } as RouterData
+        }, {
+          path: ':personId/debt/edit/:debtId', component: DebtEditComponent,
+          data: {
+            title: 'Edit/Add Person Debt',
+            hasBackButton: true
+          } as RouterData
+        }
+        ]
+      }
+    ]
+  }, {
+    path: '', redirectTo: 'persons/list', pathMatch: 'full'
+  }, {
+    path: '**', redirectTo: 'persons/list'
   }
 ];
 

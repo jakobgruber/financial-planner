@@ -1,7 +1,7 @@
 <mat-toolbar>
   <h3>Debts</h3>
   <button mat-icon-button>
-    <mat-icon [routerLink]="['/debts/person/detail/', personId, 'debt', 'edit', 'new']">add-box</mat-icon>
+    <mat-icon [routerLink]="['/debts/persons/detail/', personId, 'debt', 'edit', 'new']">add-box</mat-icon>
   </button>
 </mat-toolbar>
 
@@ -18,7 +18,7 @@
             matTooltip="mark debt as paid">
       <mat-icon [hidden]="debt.isPaid">euro_symbol</mat-icon>
     </button>
-    <button [routerLink]="['/debts/person/detail/', personId, 'debt', 'edit', debt.id]" mat-icon-button
+    <button [routerLink]="['/debts/persons/detail/', personId, 'debt', 'edit', debt.id]" mat-icon-button
             matTooltip="edit debt">
       <mat-icon>edit</mat-icon>
     </button>

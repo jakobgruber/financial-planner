@@ -95,6 +95,6 @@ export class DebtEditComponent implements OnInit {
   }
 
   private navigateBackToPerson() {
-    this.router.navigate(['/debts/person/detail', this.personId]);
+    this.router.navigate(['/debts/persons/detail', this.personId]);
   }
 }

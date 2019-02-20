@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {RouterData} from '../../models/router-data.model';
 import {filter, map, switchMap} from 'rxjs/operators';
@@ -13,7 +14,8 @@ export class MainHeaderComponent implements OnInit {
 
   $routerData: Observable<RouterData>;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class MainHeaderComponent implements OnInit {
   }
 
   navigateBack() {
-    this.router.navigateByUrl('..');
+    this.location.back();
   }
 
   private getCurrentChildRoute(): ActivatedRoute {
